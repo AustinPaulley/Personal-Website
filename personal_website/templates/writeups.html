@@ -2,36 +2,99 @@
 {% block content %}
 <section id="writeups">
     <h1>Writeups and Papers</h1>
+
+    <!-- RESEARCH-LEVEL -->
     <div class="card">
         <h2>AI Phishing Email Chain and Legitimacy Tester Using Scraped LinkedIn Profiles</h2>
-        <p>"A senior research paper exploring AI-driven phishing email generation and legitimacy testing. The study examines how AI models like GPT-3.5 and GPT-4 generate professional emails, analyze their authenticity, and assess cybersecurity risks. It highlights the potential for AI in both ethical and malicious applications, emphasizing the need for proactive security measures."</p>
+
+        <div class="project-meta">
+            <span class="difficulty-badge difficulty-research">
+                Research-Level
+            </span>
+        </div>
+
+        <p>
+            "A senior research paper exploring AI-driven phishing email generation and legitimacy testing. The study examines how AI models like GPT-3.5 and GPT-4 generate professional emails, analyze their authenticity, and assess cybersecurity risks. It highlights the potential for AI in both ethical and malicious applications, emphasizing the need for proactive security measures."
+        </p>
         <a href="{{ url_for('static', filename='writeups/AustinPaulley_AutomaticLinkdenScraperAndLigitamancyTester.pdf') }}" class="project-link">View PDF</a>
     </div>
+
     <div class="card">
         <h2>Senior Credo: Building Trust in the Cyber Frontier</h2>
-        <p>"A personal and professional reflection on the role of trust in cybersecurity and emerging technologies. This paper explores the ethical responsibilities of cybersecurity professionals, the importance of adaptability in the evolving digital landscape, and the author's commitment to building secure and trustworthy technology. It also outlines future aspirations, including pursuing a master's degree and launching a podcast focused on cybersecurity awareness."</p>
+
+        <div class="project-meta">
+            <span class="difficulty-badge difficulty-research">
+                Research-Level
+            </span>
+        </div>
+
+        <p>
+            "A personal and professional reflection on the role of trust in cybersecurity and emerging technologies. This paper explores the ethical responsibilities of cybersecurity professionals, the importance of adaptability in the evolving digital landscape, and the author's commitment to building secure and trustworthy technology. It also outlines future aspirations, including pursuing a master's degree and launching a podcast focused on cybersecurity awareness."
+        </p>
         <a href="{{ url_for('static', filename='writeups/AustinPaulley_SeniorCredo.pdf') }}" class="project-link">View PDF</a>
     </div>
-    <div class="card">
-        <h2>Austin Paulley Five-Year Plan 2023</h2>
-        <p>"This document outlines a strategic five-year career and life plan, focusing on a cybersecurity career in government, particularly in law enforcement and intelligence. It discusses professional development, aspirations for remote work, and personal goals, including balancing a fulfilling career with family life."</p>
-        <a href="{{ url_for('static', filename='writeups/Austin Paulley Five Year Plan 2023.pdf') }}" class="project-link">View PDF</a>
-    </div>
-    <div class="card">
-        <h2>Honors Stalinism: Information Warfare</h2>
-        <p>"This paper explores the historical control mechanisms of Stalinism and their parallels to modern information warfare. It examines the use of propaganda, misinformation, and digital surveillance in contemporary global conflicts and proposes strategies to counteract these threats."</p>
-        <a href="{{ url_for('static', filename='writeups/AustinPaulley Stalinism Paper.pdf') }}" class="project-link">View PDF</a>
-    </div>
-    <div class="card">
-        <h2>Integrative Reflection 2022: Something to Cherish - Patriotism</h2>
-        <p>"A personal reflection on the meaning of patriotism, shaped by personal experiences, historical events, and global perspectives. It discusses the significance of national symbols, military service, and cultural expressions of patriotism in different countries"</p>
-        <a href="{{ url_for('static', filename='writeups/Integrative Reflection 2022.pdf') }}" class="project-link">View PDF</a>
-    </div>
+
     <div class="card">
         <h2>Quanta IMRAD Research Paper: Time Spent on Twitter and General Anxiety</h2>
-        <p>"A research study analyzing the correlation between time spent on Twitter and generalized anxiety among Daytona State College students. Using survey data and statistical analysis, the paper examines how exposure to news and pop culture topics impacts mental well-being."</p>
+
+        <div class="project-meta">
+            <span class="difficulty-badge difficulty-research">
+                Research-Level
+            </span>
+        </div>
+
+        <p>
+            "A research study analyzing the correlation between time spent on Twitter and generalized anxiety among Daytona State College students. Using survey data and statistical analysis, the paper examines how exposure to news and pop culture topics impacts mental well-being."
+        </p>
         <a href="{{ url_for('static', filename='writeups/Quanta IMRAD Reasearch Paper.pdf') }}" class="project-link">View PDF</a>
     </div>
-    <!-- Add more writeups here as needed -->
+
+    <!-- ADVANCED -->
+    <div class="card">
+        <h2>Honors Stalinism: Information Warfare</h2>
+
+        <div class="project-meta">
+            <span class="difficulty-badge difficulty-advanced">
+                Advanced
+            </span>
+        </div>
+
+        <p>
+            "This paper explores the historical control mechanisms of Stalinism and their parallels to modern information warfare. It examines the use of propaganda, misinformation, and digital surveillance in contemporary global conflicts and proposes strategies to counteract these threats."
+        </p>
+        <a href="{{ url_for('static', filename='writeups/AustinPaulley Stalinism Paper.pdf') }}" class="project-link">View PDF</a>
+    </div>
+
+    <!-- INTERMEDIATE -->
+    <div class="card">
+        <h2>Integrative Reflection 2022: Something to Cherish - Patriotism</h2>
+
+        <div class="project-meta">
+            <span class="difficulty-badge difficulty-intermediate">
+                Intermediate
+            </span>
+        </div>
+
+        <p>
+            "A personal reflection on the meaning of patriotism, shaped by personal experiences, historical events, and global perspectives. It discusses the significance of national symbols, military service, and cultural expressions of patriotism in different countries"
+        </p>
+        <a href="{{ url_for('static', filename='writeups/Integrative Reflection 2022.pdf') }}" class="project-link">View PDF</a>
+    </div>
+
+    <!-- BEGINNER -->
+    <div class="card">
+        <h2>Austin Paulley Five-Year Plan 2023</h2>
+
+        <div class="project-meta">
+            <span class="difficulty-badge difficulty-beginner">
+                Beginner
+            </span>
+        </div>
+
+        <p>
+            "This document outlines a strategic five-year career and life plan, focusing on a cybersecurity career in government, particularly in law enforcement and intelligence. It discusses professional development, aspirations for remote work, and personal goals, including balancing a fulfilling career with family life."
+        </p>
+        <a href="{{ url_for('static', filename='writeups/Austin Paulley Five Year Plan 2023.pdf') }}" class="project-link">View PDF</a>
+    </div>
 </section>
 {% endblock %}

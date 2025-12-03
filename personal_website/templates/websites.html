@@ -1,58 +1,107 @@
 {% extends 'base.html' %}
 {% block content %}
 <section id="websites">
-    <h1>Websites I’ve Built</h1>
+    <h1>Website Development</h1>
 
+    <!-- ✅ TOP DESCRIPTION NOW IN A BOX -->
     <div class="card">
-        <p>
-            I’m actively learning and practicing modern web development using
-            HTML, CSS, JavaScript, Python (Flask), and React. Below are examples
-            of websites I’ve built and i am currently maintaining. As I continue
-            growing my skills, I’ll add more projects and client work here when permitted.
+        <p class="section-intro">
+            I’m actively learning modern web development and building clean, responsive websites
+            for myself and for small businesses. Below are live examples of my work that show how
+            I combine design, usability, and code into real, usable sites.
         </p>
     </div>
 
+    <!-- ✅ AUSTIN PAULLEY PORTFOLIO -->
     <div class="card">
-        <h2>Personal Portfolio – AustinPaulley.com</h2>
+        <h2>Austin Paulley Portfolio</h2>
+
+        <!-- ✅ Difficulty Badge -->
+        <div class="project-meta">
+            <span class="difficulty-badge difficulty-advanced">
+                Advanced
+            </span>
+        </div>
+
         <p>
-            This website is my custom-built portfolio, created with Flask, Jinja templates,
-            and a dynamic GitHub integration that automatically pulls my public projects.
-            It’s designed to showcase my cybersecurity background, AI projects, and writing.
+            This website is my personal portfolio, built with Flask and a custom UI theme.
+            It integrates with the GitHub API to pull live repositories, showcases my AI
+            phishing research project, and hosts writeups and academic papers.
         </p>
         <p>
-            <strong>Tech Stack:</strong> Python (Flask), HTML, CSS, Vanta.js background, GitHub API
+            I use this site as a sandbox to practice full-stack development, experiment with
+            animations like the Vanta.js background, and iterate on UX decisions that make
+            it easier for recruiters, professors, and potential clients to understand what I do.
         </p>
-        <a href="https://austinpaulley.com" target="_blank" rel="noopener noreferrer">
-            View Live Site
+
+        <div class="tech-stack">
+            <span class="tech-badge">Flask</span>
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Vanta.js</span>
+            <span class="tech-badge">Responsive Design</span>
+        </div>
+    </div>
+
+    <!-- ✅ BUTTONS MOVED UNDER THE CARD -->
+    <div class="button-row">
+        <a href="/" class="download-btn">View Live</a>
+        <a href="https://github.com/AustinPaulley/personal-website"
+           target="_blank"
+           class="download-btn download-secondary">
+            View on GitHub
         </a>
     </div>
 
+    <!-- ✅ VOM RUGERHAUS -->
     <div class="card">
-        <h2>Vom Rugerhaus German Shepherds - Vomrugerhaus.com</h2>
+        <h2>Vom Rugerhaus German Shepherds</h2>
+
+        <!-- ✅ Difficulty Badge -->
+        <div class="project-meta">
+            <span class="difficulty-badge difficulty-intermediate">
+                Intermediate
+            </span>
+        </div>
+
         <p>
-            A breeder and training website focused on showcasing German Shepherd litters,
-            pedigrees, and contact information. The design highlights photos, upcoming litters,
-            and key details in a clean, responsive layout tailored to dog owners.
+            A small-business website for a German Shepherd breeder, focused on clear branding,
+            kennel presentation, and upcoming litter promotion. The layout is designed to make
+            it easy for potential buyers to quickly see dogs, learn about the kennel, and find
+            contact information.
         </p>
         <p>
-            <strong>Tech Stack:</strong> HTML, CSS, JavaScript, responsive layout (mobile-friendly)
+            This project helped me practice turning real client needs into a structured layout:
+            hero sections, about content, litter info, photo areas, and contact calls-to-action.
+            It also reinforced responsive design so the site stays usable on phones and tablets
+            where most visitors browse.
         </p>
-        <a href="https://vomrugerhaus.com" target="_blank" rel="noopener noreferrer">
-            View Live Site
+
+        <div class="tech-stack">
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Responsive Design</span>
+            <span class="tech-badge">Branding</span>
+            <span class="tech-badge">Small Business Website</span>
+        </div>
+    </div>
+
+    <!-- ✅ BUTTONS MOVED UNDER THE CARD -->
+    <div class="button-row">
+        <a href="https://vomrugerhaus.com"
+           target="_blank"
+           class="download-btn">
+            View Live
+        </a>
+        <a href="https://github.com/AustinPaulley/vom-rugerhgaus-website"
+           target="_blank"
+           class="download-btn download-secondary">
+            View on GitHub
         </a>
     </div>
 
-    <div class="card">
-        <h2>Future Client & Practice Sites</h2>
-        <p>
-            I’m continuing to build more sites as I grow my skills in web development,
-            including small business sites, personal portfolios, and AI-focused tools.
-            If you’re interested in a simple, clean website for your business or project,
-            feel free to reach out through the Contact page.
-        </p>
-        <a href="/contact">
-            Get in Touch About a Website
-        </a>
-    </div>
 </section>
 {% endblock %}

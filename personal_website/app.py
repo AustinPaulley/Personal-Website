@@ -5,35 +5,117 @@ import os
 
 app = Flask(__name__)
 
-# Metadata for known repos: tech stack + difficulty
 PROJECT_META = {
-    "personal-website": {
-        "tech": ["Flask", "Python", "HTML", "CSS", "JavaScript"],
-        "difficulty": "Intermediate",
-        "difficulty_class": "intermediate"
-    },
+
     "Linkedin-Scraper-and-Ai-Phishing-Email-Generator": {
-        "tech": ["Python", "Flask", "MongoDB", "OpenAI", "Selenium", "BeautifulSoup"],
+        "tech": [
+            "Python", "Flask", "MongoDB", "OpenAI",
+            "Selenium", "BeautifulSoup", "API",
+            "Artificial Intelligence", "Cybersecurity",
+            "OSINT", "Social Engineering",
+            "Data Science", "Prompt Engineering",
+            "Automation", "Threat Analysis"
+        ],
         "difficulty": "Research-Level",
         "difficulty_class": "research"
     },
+
+"turing-text": {
+    "tech": [
+        "Artificial Intelligence",
+        "Natural Language Processing",
+        "Text Transformation",
+        "Text-to-Text",
+        "Python",
+        "Machine Learning",
+        "API",
+        "Data Processing",
+        "Automation",
+        "Prompt Engineering",
+        "AI Research"
+    ],
+    "difficulty": "Research-Level",
+    "difficulty_class": "research"
+},
+
+    "XXEDemo": {
+    "tech": [
+        "Cybersecurity",
+        "Web Security",
+        "XML",
+        "XXE Injection",
+        "Input Validation",
+        "Secure Parsing",
+        "Vulnerability Demonstration",
+        "Ethical Hacking",
+        "Penetration Testing"
+    ],
+    "difficulty": "Advanced",
+    "difficulty_class": "advanced"
+},
+    
+
+    "WebGoat": {
+    "tech": [
+        "Cybersecurity",
+        "Web Application Security",
+        "OWASP Top 10",
+        "Java", "Spring",
+        "SQL Injection",
+        "Cross-Site Scripting (XSS)",
+        "Authentication Attacks",
+        "Security Testing",
+        "Ethical Hacking"
+    ],
+    "difficulty": "Advanced",
+    "difficulty_class": "advanced"
+},
+
+
+
     "Data-Dynamos": {
-        "tech": ["Python", "Flask", "Excel"],
+        "tech": [
+            "Python", "Flask", "Excel",
+            "Data Analytics", "Data Visualization",
+            "ETL", "Business Intelligence"
+        ],
         "difficulty": "Intermediate",
         "difficulty_class": "intermediate"
     },
-    "Java-2-Code": {
-        "tech": ["Java"],
-        "difficulty": "Beginner",
-        "difficulty_class": "beginner"
-    },
-    "CollegePython": {
-        "tech": ["Python"],
-        "difficulty": "Beginner",
-        "difficulty_class": "beginner"
-    },
-}
 
+    "SQL-Queries": {
+    "tech": [
+        "SQL", "Databases", "Relational Databases",
+        "Query Optimization", "Data Analysis",
+        "Schema Design", "Joins", "Indexes",
+        "Transactions", "Stored Procedures",
+        "Artificial Intelligence", "AI + Databases",
+        "Mobile App Backend", "API", "Data Engineering"
+    ],
+    "difficulty": "Intermediate",
+    "difficulty_class": "intermediate"
+},
+
+
+    "Java-2-Code": {
+        "tech": [
+            "Java", "OOP", "Algorithms",
+            "Programming Fundamentals", "Data Structures"
+        ],
+        "difficulty": "Beginner",
+        "difficulty_class": "beginner"
+    },
+
+    "CollegePython": {
+        "tech": [
+            "Python", "Scripting", "Automation",
+            "Programming Fundamentals"
+        ],
+        "difficulty": "Beginner",
+        "difficulty_class": "beginner"
+    },
+
+}
 @app.route('/')
 def home():
     github_username = 'AustinPaulley'
@@ -76,7 +158,20 @@ def projects():
     except RequestException:
         projects = []
 
-    # Attach tech stack + difficulty to each project
+    # Repos to hide from the GitHub Repos page
+    EXCLUDED_REPOS = {
+        "personal-website",
+        "vom-rugerhgaus-website",
+        "vom-rugerhaus-website"  # spelling safety
+    }
+
+    # Filter them out first
+    projects = [
+        project for project in projects
+        if project.get("name") not in EXCLUDED_REPOS
+    ]
+
+    # Attach tech stack + difficulty to each remaining project
     for project in projects:
         name = project.get("name", "")
         meta = PROJECT_META.get(name, None)
@@ -90,6 +185,21 @@ def projects():
             project["tech_stack"] = ["Python"]
             project["difficulty"] = "Intermediate"
             project["difficulty_class"] = "intermediate"
+
+    # 🔹 Sort by difficulty: research -> advanced -> intermediate -> beginner
+    difficulty_order = {
+        "research": 0,
+        "advanced": 1,
+        "intermediate": 2,
+        "beginner": 3,
+    }
+
+    projects.sort(
+        key=lambda p: difficulty_order.get(
+            p.get("difficulty_class", "intermediate"),
+            2  # default to intermediate rank
+        )
+    )
 
     return render_template('projects.html', projects=projects, active_page='projects')
 

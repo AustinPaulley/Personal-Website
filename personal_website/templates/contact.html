@@ -1,31 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
 <section id="contact">
-    <h1>Contact Me</h1>
+    <h1>Contact</h1>
 
-    <div class="card contact-card">
+    <!-- Main intro -->
+    <div class="card contact-width">
+        <h2>Get in Touch</h2>
         <p>
-            If you’d like to connect about cybersecurity, AI projects, freelance work,
-            or collaboration, feel free to email me directly:
+            Whether you’re interested in my AI phishing research, need help with a website,
+            or want to talk cybersecurity and career paths, I’d love to connect.
         </p>
-
-        <p class="contact-email">
-            <a href="mailto:austin.m.paulley@gmail.com">
-                austin.m.paulley@gmail.com
-            </a>
-        </p>
-
-        <p class="contact-note">
-            Clicking the button below will open your email app automatically.
+        <p>
+            The fastest way to reach me is by email or LinkedIn using the buttons below.
         </p>
     </div>
 
-    <!-- ✅ BUTTON NOW BELOW THE BOX LIKE THE RESUME PAGE -->
-    <div class="resume-download">
-        <a class="download-btn"
-           href="mailto:austin.m.paulley@gmail.com?subject=Portfolio%20Inquiry">
-            Send Email
+    <!-- ✅ Buttons Only -->
+    <div class="button-row">
+        <a href="mailto:austin.m.paulley@gmail.com" class="download-btn">
+            Email Me Directly
         </a>
+        <a href="https://www.linkedin.com/in/austin-paulley-923b7b27b/"
+           target="_blank"
+           class="download-btn download-secondary">
+            Connect on LinkedIn
+        </a>
+    </div>
+    <!-- Current availability -->
+    <div class="card contact-width">
+        <h2>Current Availability</h2>
+        <ul class="contact-list">
+            <li>Entry-level / junior cybersecurity roles</li>
+            <li>Security or AI-focused internships</li>
+            <li>Freelance website development for small businesses</li>
+        </ul>
     </div>
 </section>
 {% endblock %}

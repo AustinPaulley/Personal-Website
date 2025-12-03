@@ -1,4 +1,16 @@
 /* ================================
+   GLOBAL FONT + TEXT NORMALIZATION
+   ================================ */
+
+* {
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+
+
+
+/* ================================
    GLOBAL RESET & TYPOGRAPHY
    ================================ */
 
@@ -436,6 +448,14 @@ body.dark nav ul {
     flex-wrap: wrap;
 }
 
+.button-row {
+    display: flex;
+    justify-content: center;   /* ✅ centers the buttons */
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 16px 0 40px 0;
+}
+
 /* Secondary-style button to pair with primary download-btn */
 .secondary-btn {
     background: transparent;
@@ -622,9 +642,9 @@ body.dark .stat-number {
 }
 
 .difficulty-intermediate {
-    background: rgba(33, 150, 243, 0.18);
-    border-color: rgba(33, 150, 243, 0.5);
-    color: #1DA1F2;
+    background: rgba(0, 188, 212, 0.18);      /* soft teal glow */
+    border-color: rgba(0, 188, 212, 0.6);     /* teal border */
+    color: #00BCD4;                          /* bright cyan-teal text */
 }
 
 .difficulty-advanced {
@@ -705,6 +725,109 @@ footer {
     color: #58B5FF;
     text-shadow: 0 0 6px rgba(29, 161, 242, 0.6);
 }
+
+/* ================================
+   CONTACT PAGE FOOTER FIX
+   ================================ */
+
+/* Force main content to push footer down */
+main {
+    min-height: calc(100vh - 180px);
+    position: relative;
+    z-index: 2;
+}
+
+/* Keep Vanta in the true background */
+#vanta-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+}
+
+/* Force footer ABOVE vanta and at page bottom */
+footer {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    margin-top: 80px;
+}
+
+/* ================================
+   CONTACT PAGE WIDTH FIX
+   ================================ */
+
+.contact-width {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ================================
+   CONTACT PAGE LAYOUT
+   ================================ */
+
+.contact-form .form-row {
+    margin-bottom: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    max-width: 480px;
+    padding: 10px 12px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(10, 25, 41, 0.85);
+    color: #FFFFFF;
+}
+
+/* Center the inputs */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.success-message {
+    margin-bottom: 14px;
+    font-weight: 500;
+    color: #4CAF50;
+}
+
+/* Two-column area under the form */
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    text-align: center;
+}
+
+.contact-column {
+    flex: 1 1 260px;
+    max-width: 360px;
+}
+
+.contact-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 8px;
+}
+
+.contact-list li {
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+/* Ensure the button-row doesn’t hug the card too tight */
+#contact .button-row {
+    margin-top: 18px;
+    margin-bottom: 30px;
+}
+
 
 /* ================================
    MOBILE TUNING
