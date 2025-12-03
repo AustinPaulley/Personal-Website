@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="ai-project">
+    <h1>AI Phishing Email Generator & Legitimacy Tester</h1>
+
+    <div class="card">
+        <p>
+            This application is my cybersecurity senior project focused on demonstrating how
+            artificial intelligence can be used to both generate and detect socially engineered
+            phishing emails using real-world LinkedIn profile data.
+        </p>
+        <p>
+            The system simulates how attackers craft professional email chains and how defenders
+            can use AI to detect legitimacy based on tone, context, and structure.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>How the System Works</h2>
+        <ul>
+            <li>Scrapes public LinkedIn data using automated tools</li>
+            <li>Generates AI-crafted phishing-style email chains</li>
+            <li>Tests each email using a second AI model for legitimacy</li>
+            <li>Stores all results in a MongoDB database</li>
+            <li>Supports adjustable temperature, chain size, and AI models</li>
+        </ul>
+    </div>
+
+    <div class="card">
+    <h2>Temperature Testing Results (GPT-3.5 Turbo)</h2>
+    <p>
+        The table below shows how AI temperature impacts the average legitimacy score
+        when generating phishing-style emails. Each test used 200 samples per temperature.
+    </p>
+
+    <div class="card">
+    <h2>Example Stored Database Record (MongoDB)</h2>
+    <p>
+        Each generated email chain and legitimacy result is stored in MongoDB
+        using structured collections based on chain size, temperature, and AI models.
+    </p>
+
+    <div class="db-record">
+<pre>
+Collection:
+results_chain0_temp0.5_gengpt_gpt-4-turbo_testgpt-4-turbo
+
+{
+  "_id": ObjectId("673ec392be46a756d819d611"),
+  "name": "Austin Paulley",
+  "temperature": 0.5,
+  "legitimacy_score": 85,
+  "legitimacy_analysis": "(AI generated analysis response)",
+  "email_chain": [ "...full email array..." ],
+  "generating_ai": "gpt-4-turbo",
+  "testing_ai": "gpt-4-turbo"
+}
+</pre>
+    </div>
+</div>
+
+    <div class="card">
+    <h2>Example Application Interface (Static Preview)</h2>
+    <p>
+        This is a static preview of the desktop application interface used for my AI phishing
+        email generator and legitimacy tester. The live app is built in Python and connects
+        to LinkedIn data, OpenAI models, and MongoDB. This preview is non-functional and
+        meant only to demonstrate the layout and controls.
+    </p>
+
+    <div class="app-mockup">
+        <div class="app-header">
+            <span class="app-title">AI LinkedIn Phishing Email Generator & Tester</span>
+            <span class="app-subtitle">Static UI Preview (Different UI from Project with same content)</span>
+        </div>
+
+        <div class="app-body">
+            <div class="app-column">
+                <label for="mock-linkedin-url">LinkedIn Main Profile URL</label>
+                <input id="mock-linkedin-url" type="text" value="https://linkedin.com/in/example-profile" readonly>
+
+                <label>Chain Size</label>
+                <div class="mock-slider-row">
+                    <input type="range" min="1" max="6" value="4" disabled>
+                    <span class="mock-value">4 emails</span>
+                </div>
+
+                <label>AI Temperature</label>
+                <div class="mock-slider-row">
+                    <input type="range" min="0" max="2" value="1" disabled>
+                    <span class="mock-value">1.0</span>
+                </div>
+
+                <label>Generation Model</label>
+                <select disabled>
+                    <option>gpt-3.5-turbo</option>
+                    <option>gpt-4.1-mini</option>
+                    <option>gpt-4.1</option>
+                </select>
+
+                <label>Testing Model</label>
+                <select disabled>
+                    <option>gpt-3.5-turbo</option>
+                    <option>gpt-4.1-mini</option>
+                    <option>gpt-4.1</option>
+                </select>
+
+                <div class="mock-button-row">
+                    <button class="mock-btn primary" disabled>Start Email Generation</button>
+                    <button class="mock-btn secondary" disabled>Stop Generation</button>
+                </div>
+            </div>
+
+            <div class="app-column">
+                <label>Composed Email Chain (Preview)</label>
+                <textarea readonly>
+[Email 1]
+Hello [Name],
+I came across your LinkedIn profile and was impressed by your background in [Field]...
+
+[Email 2]
+Just following up on my previous message regarding the opportunity with [Company]...
+
+[Email 3]
+I know your time is valuable, but I would love to schedule a quick call...
+
+[Email 4]
+This will be my last follow-up — please let me know if you are interested...
+                </textarea>
+
+                <label>Legitimacy Score (AI Tester)</label>
+                <div class="mock-score-row">
+                    <span class="mock-score-label">Overall Legitimacy:</span>
+                    <span class="mock-score-value">82%</span>
+                </div>
+                <p class="mock-score-note">
+                    Score generated by a separate AI model analyzing tone, structure, and context.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="data-table-wrapper">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Temperature</th>
+                    <th>Average Legitimacy Score (%)</th>
+                    <th>Total Tests</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>0.0</td><td>94.17</td><td>200</td></tr>
+                <tr><td>0.5</td><td>94.38</td><td>200</td></tr>
+                <tr><td>1.0</td><td>93.95</td><td>200</td></tr>
+                <tr><td>1.5</td><td>91.17</td><td>200</td></tr>
+                <tr><td>2.0</td><td>29.55</td><td>200</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">
+        Chain Size = 0 • Generation AI = GPT-3.5 Turbo • Testing AI = GPT-3.5 Turbo
+    </p>
+</div>
+    <div class="card key-findings">
+    <h2>Key Findings</h2>
+
+    <ul class="findings-list">
+        <li>
+            <strong>Low temperature settings (0.0–1.0)</strong> consistently produced the most
+            realistic and high-legitimacy phishing-style emails, averaging around <strong>94%</strong>.
+        </li>
+
+        <li>
+            <strong>High temperature values (2.0)</strong> caused a significant breakdown in
+            realism and structure, with legitimacy scores dropping to approximately <strong>29%</strong>.
+        </li>
+
+        <li>
+            Using <strong>separate AI models for generation and testing</strong> improved detection
+            reliability and reduced false positives.
+        </li>
+
+        <li>
+            Storing results in <strong>MongoDB collections based on temperature, chain size, and models</strong>
+            enabled scalable experiment tracking and long-term analysis.
+        </li>
+
+        <li>
+            Multi-step <strong>email chains</strong> were shown to increase realism over single-message
+            phishing attempts by better simulating real-world attacker behavior.
+        </li>
+    </ul>
+</div>
+
+        <div class="card">
+        <h2>Source Code & Research</h2>
+        <p>
+            The full source code and detailed research paper for this project are available below.
+            The code focuses on automating email generation and legitimacy testing, while the paper
+            explains the methodology, findings, and cybersecurity implications.
+        </p>
+    </div>
+
+    <!-- Buttons side by side, outside the card -->
+    <div class="button-row-center">
+    <a class="download-btn"
+       href="https://github.com/AustinPaulley/Linkedin-Scraper-and-Ai-Phishing-Email-Generator"
+       target="_blank" rel="noopener noreferrer">
+        View on GitHub
+    </a>
+
+    <a href="/writeups" class="download-btn">
+        Read the Research Paper
+    </a>
+</div>
+
+</section>
+{% endblock %}

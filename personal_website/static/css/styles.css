@@ -1,3 +1,14 @@
+/* ================================
+   GLOBAL RESET & TYPOGRAPHY
+   ================================ */
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -5,176 +16,124 @@ body {
     background: #FFFFFF;
     color: #333333;
     transition: all 0.3s ease;
+    line-height: 1.65; /* cleaner reading */
 }
 
+/* Cleaner title scale */
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* ================================
+   FLOATING MODERN NAV
+   ================================ */
+
 nav {
-    background: #F7F7F7;
-    padding: 15px;
     position: fixed;
-    top: 0;
+    top: 20px;
+    left: 0;
     width: 100%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    padding: 0;
     z-index: 1000;
-    box-sizing: border-box;
 }
 
 nav ul {
     list-style: none;
     margin: 0;
-    padding: 0;
-    text-align: center;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(25, 39, 52, 0.9);
+    border-radius: 9999px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 20px;
+    display: inline-flex;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #333333;
-    font-size: 16px;
+    color: #D9D9D9;
+    font-size: 15px;
     font-weight: 500;
-    padding-bottom: 2px;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
 }
 
 nav ul li a:hover {
+    background: rgba(29, 161, 242, 0.18);
     color: #1DA1F2;
-    border-bottom: 2px solid #1DA1F2;
+    box-shadow: 0 0 0 1px rgba(29, 161, 242, 0.5);
 }
 
-.mode-toggle {
-    position: absolute;
-    top: 15px;
-    right: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #333333;
-    white-space: nowrap;
+/* active nav tab style */
+nav ul li a.active {
+    background: rgba(29, 161, 242, 0.32);
+    color: #1DA1F2;
+    box-shadow: 0 0 0 1px rgba(29, 161, 242, 0.8);
 }
+
+
+/* ================================
+   MAIN CONTENT AREA
+   ================================ */
 
 main {
-    padding: 80px 20px 20px;
+    padding: 110px 20px 20px;
     max-width: 900px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
-h1 {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-align: center;
-}
+/* ================================
+   HOME PROFILE IMAGE
+   ================================ */
 
-h2 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-/* Home Page */
 .profile-pic {
-    width: 200px;
-    height: 200px;
+    width: 190px;
+    height: 190px;
     border-radius: 50%;
     display: block;
-    margin: 20px auto;
+    margin: 25px auto;
 }
 
-/* Resume Page */
-.resume-content {
-    margin-top: 20px;
-}
+/* ================================
+   CARDS (GLOBAL)
+   ================================ */
 
-.resume-content .card {
-    background: #F7F7F7;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 5px;
-}
-
-.resume-content .card h2 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: underline;
-}
-
-.resume-content .card p {
-    margin: 8px 0;
-    text-align: center;
-}
-
-.resume-content .card p strong {
-    font-weight: 600;
-    text-decoration: underline;
-}
-
-.resume-content .card .expertise-list {
-    font-size: 14px;
-    color: #444;
-    margin: 10px 0;
-}
-
-.resume-content .card ul {
-    list-style: disc;
-    padding-left: 40px;
-    margin: 15px 0;
-    text-align: left;
-}
-
-.resume-content .card ul li {
-    margin: 10px 0;
-}
-
-.resume-content .card .tagline {
-    font-style: italic;
-    font-weight: 500;
-    margin-top: 15px;
-    color: #555;
-}
-
-.resume-download {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.download-btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background: #1DA1F2;
-    color: #FFFFFF;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: 16px;
-}
-
-.download-btn:hover {
-    background: #0d8ecf;
-}
-
-/* Card Styles (used for Home, Projects, Writeups, and Resume) */
 .card {
     background: #F7F7F7;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 5px;
-}
-
-.card h2 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    text-align: center;
-    text-decoration: underline;
+    padding: 22px;
+    margin: 22px 0;
+    border-radius: 10px;
 }
 
 .card p {
     font-size: 16px;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 }
 
 .card a {
@@ -187,51 +146,73 @@ h2 {
     text-decoration: underline;
 }
 
-/* Dark Mode */
-body.dark {
-    background: #15202B;
-    color: #D9D9D9;
+/* ================================
+   RESUME SECTION
+   ================================ */
+
+.resume-content {
+    margin-top: 20px;
 }
 
-body.dark nav {
-    background: #192734;
+.resume-content .card {
+    background: #F7F7F7;
+    padding: 22px;
+    margin: 22px 0;
 }
 
-body.dark nav ul li a {
-    color: #D9D9D9;
+.resume-content .card h2 {
+    text-transform: uppercase;
+    text-decoration: underline;
 }
 
-body.dark nav ul li a:hover {
-    color: #1DA1F2;
-    border-bottom: 2px solid #1DA1F2;
+.resume-content .card p {
+    margin: 10px 0;
+    text-align: center;
 }
 
-body.dark .mode-toggle {
-    color: #D9D9D9;
+.resume-content .card ul {
+    list-style: disc;
+    padding-left: 40px;
+    margin: 14px 0;
+    text-align: left;
 }
 
-body.dark .card {
-    background: #192734;
+.resume-download {
+    text-align: center;
+    margin-top: 35px;
 }
 
-body.dark .resume-content .card {
-    background: #192734;
-    color: #D9D9D9;
+/* ================================
+   BUTTON SYSTEM
+   ================================ */
+
+.download-btn {
+    display: inline-block;
+    padding: 12px 26px;
+    background: #1DA1F2;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
 
-body.dark .resume-content .card .tagline {
-    color: #BBBBBB;
+.download-btn:hover {
+    background: #0d8ecf;
+    color: #FFFFFF !important;
 }
 
-body.dark .resume-content .card .expertise-list {
-    color: #CCCCCC;
-}
+/* ================================
+   EXPERTISE GRID
+   ================================ */
 
 .three-column-grid {
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
-    margin-top: 15px;
+    margin-top: 18px;
 }
 
 .expertise-column {
@@ -240,12 +221,10 @@ body.dark .resume-content .card .expertise-list {
 }
 
 .expertise-column h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 8px;
     text-align: center;
     text-decoration: underline;
     color: #1DA1F2;
+    margin-bottom: 8px;
 }
 
 .expertise-column ul {
@@ -258,36 +237,494 @@ body.dark .resume-content .card .expertise-list {
     margin-bottom: 8px;
 }
 
+/* ================================
+   CONTACT PAGE
+   ================================ */
 
+#contact {
+    text-align: center;
+}
 
-/* Responsive Design */
+#contact .card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ================================
+   DARK MODE (VANTA MATCH)
+   ================================ */
+
+body.dark {
+    background: #0a0a0a;
+    color: #D9D9D9;
+}
+
+body.dark .card {
+    background: #192734;
+}
+
+body.dark nav ul {
+    background: rgba(25, 39, 52, 0.95);
+}
+
+/* ================================
+   FULLSCREEN VANTA BACKGROUND
+   ================================ */
+
+#vanta-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+#vanta-bg canvas {
+    pointer-events: none;
+}
+
+/* ================================
+   AI APP MOCKUP UI
+   ================================ */
+
+.app-mockup {
+    background: rgba(10, 20, 30, 0.9);
+    border-radius: 12px;
+    padding: 16px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.app-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.app-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.app-subtitle {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.app-body {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.app-column {
+    flex: 1 1 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.app-mockup label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.app-mockup input[type="text"],
+.app-mockup select,
+.app-mockup textarea {
+    background: rgba(15, 25, 35, 0.95);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 10px;
+    color: #D9D9D9;
+    font-size: 13px;
+    font-family: inherit;
+}
+
+.app-mockup input[readonly],
+.app-mockup textarea[readonly],
+.app-mockup select[disabled] {
+    opacity: 0.9;
+    cursor: default;
+}
+
+.app-mockup textarea {
+    min-height: 190px;
+    resize: none;
+    white-space: pre-line;
+}
+
+.mock-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mock-slider-row input[type="range"] {
+    flex: 1;
+}
+
+.mock-value {
+    font-size: 12px;
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+.mock-button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.mock-btn {
+    padding: 7px 14px;
+    border-radius: 6px;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: default;
+    opacity: 0.7;
+}
+
+.mock-btn.primary {
+    background: #1DA1F2;
+    color: #FFFFFF;
+}
+
+.mock-btn.secondary {
+    background: #192734;
+    color: #D9D9D9;
+}
+
+.mock-score-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.mock-score-label {
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+.mock-score-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1DA1F2;
+}
+
+.mock-score-note {
+    font-size: 12px;
+    opacity: 0.75;
+    margin-top: 4px;
+}
+
+/* Centered side-by-side buttons under AI project */
+.button-row-center {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+/* Secondary-style button to pair with primary download-btn */
+.secondary-btn {
+    background: transparent;
+    color: #1DA1F2 !important;
+    border: 1px solid #1DA1F2;
+}
+
+.secondary-btn:hover {
+    background: rgba(29, 161, 242, 0.15);
+    color: #1DA1F2 !important;
+}
+
+/* ================================
+   AI PROJECT DATA DISPLAY
+   ================================ */
+
+.data-table-wrapper {
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+}
+
+.data-table th {
+    background: rgba(29, 161, 242, 0.2);
+    font-weight: 600;
+}
+
+.data-table tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* MongoDB record mock display */
+.db-record {
+    background: rgba(10, 20, 30, 0.95);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: Consolas, Monaco, monospace;
+    font-size: 12.5px;
+    overflow-x: auto;
+}
+
+/* ================================
+   AI PROJECT - KEY FINDINGS
+   ================================ */
+
+.key-findings {
+    border: 1px solid rgba(29, 161, 242, 0.25);
+    box-shadow: 0 0 0 1px rgba(29, 161, 242, 0.15), 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.findings-list {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.findings-list li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+body.dark .key-findings {
+    background: linear-gradient(
+        135deg,
+        rgba(25, 39, 52, 0.95),
+        rgba(15, 25, 35, 0.95)
+    );
+}
+
+/* ================================
+   TECH STACK BADGES
+   ================================ */
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0 12px 0;
+}
+
+.tech-badge {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(29, 161, 242, 0.15);
+    border: 1px solid rgba(29, 161, 242, 0.4);
+    color: #1DA1F2;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* ================================
+   HOME PAGE STATS STRIP
+   ================================ */
+
+.stats-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 10px 0 26px 0;
+}
+
+.stat-card {
+    flex: 1 1 180px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: rgba(247, 247, 247, 0.95);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    text-align: left;
+}
+
+.stat-number {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* Dark mode look for stats */
+body.dark .stat-card {
+    background: rgba(25, 39, 52, 0.95);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+}
+
+body.dark .stat-number {
+    color: #1DA1F2;
+}
+
+/* ================================
+   CURRENTLY LEARNING LIST
+   ================================ */
+
+.learning-list {
+    list-style: disc;
+    padding-left: 22px;
+    margin-top: 8px;
+}
+
+.learning-list li {
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+/* ================================
+   PROJECT TECH STACK & DIFFICULTY
+   ================================ */
+
+.project-meta {
+    margin: 6px 0 4px 0;
+}
+
+.difficulty-badge {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Color variations */
+.difficulty-beginner {
+    background: rgba(76, 175, 80, 0.18);
+    border-color: rgba(76, 175, 80, 0.5);
+    color: #4CAF50;
+}
+
+.difficulty-intermediate {
+    background: rgba(33, 150, 243, 0.18);
+    border-color: rgba(33, 150, 243, 0.5);
+    color: #1DA1F2;
+}
+
+.difficulty-advanced {
+    background: rgba(255, 152, 0, 0.18);
+    border-color: rgba(255, 152, 0, 0.6);
+    color: #FFB300;
+}
+
+.difficulty-research {
+    background: rgba(156, 39, 176, 0.22);
+    border-color: rgba(156, 39, 176, 0.7);
+    color: #E040FB;
+}
+
+/* Tech stack badges (if not already defined) */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0 12px 0;
+}
+
+.tech-badge {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(29, 161, 242, 0.15);
+    border: 1px solid rgba(29, 161, 242, 0.4);
+    color: #1DA1F2;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* ================================
+   SOLID BLUE FOOTER (MATCHES CARDS)
+   ================================ */
+
+footer {
+    margin-top: 40px;
+    padding: 16px 20px;
+    background: rgba(25, 39, 52, 1);  /* solid card blue */
+    border-top: 1px solid rgba(29, 161, 242, 0.35);
+    font-size: 13px;
+    position: relative;
+    z-index: 5;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footer-text {
+    color: #DCE6F1;
+    opacity: 0.85;
+}
+
+.footer-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13px;
+    color: #1DA1F2;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #58B5FF;
+    text-shadow: 0 0 6px rgba(29, 161, 242, 0.6);
+}
+
+/* ================================
+   MOBILE TUNING
+   ================================ */
+
 @media (max-width: 768px) {
+
     nav {
-        padding: 10px;
+        top: 10px;
     }
 
     nav ul {
-        display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        padding: 0;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 0;
-    }
-
-    .mode-toggle {
-        position: static;
-        text-align: center;
-        margin-top: 10px;
-        padding: 5px 0;
+        gap: 6px;
+        padding: 10px 16px;
+        border-radius: 18px;
     }
 
     main {
-        padding: 100px 15px 15px; /* Add top padding to account for fixed nav */
+        padding: 120px 15px 15px;
     }
 
     .profile-pic {
@@ -300,22 +737,12 @@ body.dark .resume-content .card .expertise-list {
         gap: 1.5rem;
     }
 
-    .expertise-column {
-        width: 100%;
-    }
-
-    .resume-content .card {
-        margin: 15px 0;
-        padding: 15px;
-    }
-
-    #vanta-bg {
-        width: 100%;
-        height: 100%;
-        min-height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: -1;
+    .card h1 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+}
+    .app-body {
+        flex-direction: column;
     }
 }

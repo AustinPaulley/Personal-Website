@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="contact">
+    <h1>Contact Me</h1>
+
+    <div class="card contact-card">
+        <p>
+            If you’d like to connect about cybersecurity, AI projects, freelance work,
+            or collaboration, feel free to email me directly:
+        </p>
+
+        <p class="contact-email">
+            <a href="mailto:austin.m.paulley@gmail.com">
+                austin.m.paulley@gmail.com
+            </a>
+        </p>
+
+        <p class="contact-note">
+            Clicking the button below will open your email app automatically.
+        </p>
+    </div>
+
+    <!-- ✅ BUTTON NOW BELOW THE BOX LIKE THE RESUME PAGE -->
+    <div class="resume-download">
+        <a class="download-btn"
+           href="mailto:austin.m.paulley@gmail.com?subject=Portfolio%20Inquiry">
+            Send Email
+        </a>
+    </div>
+</section>
+{% endblock %}

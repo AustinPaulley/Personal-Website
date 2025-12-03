@@ -4,30 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Austin Paulley - Portfolio</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
     <style>
+        /* only used to avoid flash of unstyled content */
         body {
             visibility: hidden;
         }
     </style>
 </head>
+
 <body class="dark">
-    <div id="vanta-bg">
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/resume">Resume</a></li>
-                <li><a href="/projects">Projects</a></li>
-                <li><a href="/writeups">Writeups</a></li>
-                <li><a href="#" onclick="window.open('https://dot.cards/apaulley', 'popup', 'width=800,height=600'); return false;">Socials</a></li>
-            </ul>
-        </nav>
-        <main>
-            {% block content %}{% endblock %}
-        </main>
-    </div>
+
+    <!-- Vanta background lives alone as a sibling, not wrapping nav/main -->
+    <div id="vanta-bg"></div>
+
+    <!-- NAV -->
+    <nav>
+        <ul>
+            <li>
+                <a href="/" class="{% if active_page == 'home' %}active{% endif %}">Home</a>
+            </li>
+            <li>
+                <a href="/resume" class="{% if active_page == 'resume' %}active{% endif %}">Resume</a>
+            </li>
+            <li>
+                <a href="/projects" class="{% if active_page == 'projects' %}active{% endif %}">GitHub Repos</a>
+            </li>
+            <li>
+                <a href="/ai-project" class="{% if active_page == 'ai_project' %}active{% endif %}">AI Email Tool</a>
+            </li>
+            <li>
+                <a href="/writeups" class="{% if active_page == 'writeups' %}active{% endif %}">Writeups</a>
+            </li>
+            <li>
+                <a href="/websites" class="{% if active_page == 'websites' %}active{% endif %}">Website Dev</a>
+            </li>
+            <li>
+                <a href="/contact" class="{% if active_page == 'contact' %}active{% endif %}">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- MAIN PAGE CONTENT -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER (NOW AT BOTTOM WHERE IT BELONGS) -->
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-text">© 2025 Austin Paulley</span>
+            <div class="footer-links">
+                <a href="https://github.com/AustinPaulley" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/austin-paulley-923b7b27b/" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+                <a href="mailto:austin.m.paulley@gmail.com">
+                    Email
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Stats Counter Script -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const counters = document.querySelectorAll(".stat-number");
+        const animationDuration = 3500; // 3.5 seconds total for all counters
+
+        counters.forEach(counter => {
+            const target = +counter.getAttribute("data-target");
+            const startTime = performance.now();
+
+            const update = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / animationDuration, 1);
+
+                const value = Math.floor(progress * target);
+                counter.textContent = value;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    counter.textContent = target + "+";
+                }
+            };
+
+            requestAnimationFrame(update);
+        });
+    });
+    </script>
 
     <!-- Vanta.js and Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
@@ -50,5 +121,6 @@
             });
         });
     </script>
+
 </body>
 </html>

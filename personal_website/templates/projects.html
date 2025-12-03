@@ -1,13 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 <section id="projects">
-    <h1>GitHub Projects</h1>
+    <h1>GitHub Repositories</h1>
+
     {% if projects %}
         {% for project in projects %}
         <div class="card">
             <h2>{{ project.name }}</h2>
             <p>{{ project.description or 'No description available.' }}</p>
-            <a href="{{ project.html_url }}" class="project-link">View on GitHub</a>
+
+            <!-- Difficulty badge -->
+            <div class="project-meta">
+                <span class="difficulty-badge difficulty-{{ project.difficulty_class|default('intermediate') }}">
+                    {{ project.difficulty or 'Intermediate' }}
+                </span>
+            </div>
+
+            <!-- Tech stack badges -->
+            <div class="tech-stack">
+                {% for tech in project.tech_stack %}
+                    <span class="tech-badge">{{ tech }}</span>
+                {% endfor %}
+            </div>
+
+            <a href="{{ project.html_url }}" class="project-link" target="_blank">
+                View on GitHub
+            </a>
         </div>
         {% endfor %}
     {% else %}

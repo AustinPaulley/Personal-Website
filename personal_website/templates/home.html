@@ -3,6 +3,25 @@
 <section id="home">
     <h1>Welcome to My Portfolio</h1>
     <img src="{{ url_for('static', filename='images/ProfilePic.jpg') }}" alt="Profile Picture" class="profile-pic">
+                <!-- Animated Stats Strip -->
+<div class="stats-strip">
+    <div class="stat-card">
+        <div class="stat-number" data-target="1300">0</div>
+        <div class="stat-label">AI-generated emails tested</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number" data-target="10">0</div>
+        <div class="stat-label">Public GitHub repositories</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number" data-target="6">0</div>
+        <div class="stat-label">Years of Learning and hands-on tech experience</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number" data-target="8">0</div>
+        <div class="stat-label">Production-style apps & websites</div>
+    </div>
+</div>
     <div class="card">
         <h2>About Me</h2>
         <p>Hello! I’m Austin Paulley, a recent cybersecurity graduate from Stetson University with a Bachelor’s in Science and a passion for AI and space exploration. My academic journey—from earning an Associate of Arts at Daytona State College to mastering cybersecurity at Stetson—has equipped me with a strong foundation in Python, Java, C++, Linux, and tools like Docker and Kali Linux.</p>
@@ -18,15 +37,16 @@
         <p>▪Cybersecurity Tools: Burp Suite, Wireshark, Kali Linux, Nmap, Metasploit.</p>
         <p>▪Cloud & Infrastructure: AWS, Azure, MongoDB, Digital Ocean, SQL.</p>
     </div>
-    <div class="card">
-        <h2>Featured Projects</h2>
-        {% for project in projects %}
+
         <div class="card">
-            <h1>{{ project.name }}</h1>
-            <p>{{ project.description or 'No description available.' }}</p>
-            <a href="{{ project.html_url }}" target="_blank">View on GitHub</a>
-        </div>
-        {% endfor %}
+        <h2>Currently Learning</h2>
+        <ul class="learning-list">
+            <li>Modern web development (Flask, responsive design, front-end polish)</li>
+            <li>Building and deploying websites for real clients and personal projects</li>
+            <li>Hack The Box labs and challenges to sharpen practical hacking skills on Kali Linux</li>
+            <li>Containerization and deployment basics (Docker, cloud hosting)</li>
+            <li>Advanced prompt engineering and AI model evaluation</li>
+        </ul>
     </div>
 </section>
 {% endblock %}
